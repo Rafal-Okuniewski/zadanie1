@@ -178,7 +178,7 @@ Ustawienie sekretów logowania do DockerHub i GitHub Container Registry
 
 Wyświetlenie poprawnego procesu budowania przygotowanego obrazu według parametrów wskazanych w zadaniu.
 
-![alt text](images/extra3.png)
+![alt text](images/extra3.PNG)
 
 - z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry
 
