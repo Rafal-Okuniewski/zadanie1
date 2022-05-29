@@ -106,7 +106,7 @@ Widok z przeglądarki: http://localhost:8080/
 
 Zbudować obrazy kontenera z aplikacją opracowaną w punkcie nr 1, które będą pracował na architekturach: linux/arm/v7, linux/arm64/v8 oraz linux/amd64. Obrazy te należy przesłać do swojego repozytorium na DockerHub. W sprawozdaniu należy podać wykorzystane instrukcje wraz z wynikiem ich działania I ewentualnymi komentarzami.
 
-Docker Hub: https://hub.docker.com/r/s99175/zadanie1/tags
+DockerHub: https://hub.docker.com/r/s99175/zadanie1/tags
 
 ```
 docker buildx build -t s99175/zadanie1:v1 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .
@@ -170,15 +170,36 @@ jobs:
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
           tags: |
             s99175/zadanie1:v1
-            ghcr.io/rafal-okuniewski/zadanie1/zadanie1:v1
+            ghcr.io/rafal-okuniewski/zadanie1:v1
 ```
 
-Ustawienie sekretów logowania do Dockerhub i Github
+Ustawienie sekretów logowania do DockerHub i GitHub Container Registry
+![alt text](images/extra1.png)
 
+Wyświetlenie poprawnego procesu budowania przygotowanego obrazu według parametrów wskazanych w zadaniu.
 
 ![alt text](images/extra3.png)
 
-- dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody
-
-
 - z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry
+
+Budowanie zostało skonfigurowane tak, aby wysyłać obraz na GitHub Container Registry oraz DockerHub. Dodanie przesyłania obrazu na Github Container Registry wiązało się z dodaniem klucza logowania do tej platformy jako sekretu oraz dodania sekcji logowania w pliku z rozszerzeniem .yml wraz z sekcją podania repozytorium oraz taga. 
+
+### Logowanie
+```
+- name: Login to Github Packages
+uses: docker/login-action@v1
+with:
+  registry: ghcr.io
+  username: ${{ github.actor }}
+  password: ${{ secrets.GHCR_PAT }}
+```
+### Dodanie taga
+```
+ghcr.io/rafal-okuniewski/zadanie1:v1
+```
+
+### Repozytoria
+
+DockerHub: https://hub.docker.com/r/s99175/zadanie1/tags
+
+GitHub Container Registry: https://github.com/users/Rafal-Okuniewski/packages/container/package/zadanie1
