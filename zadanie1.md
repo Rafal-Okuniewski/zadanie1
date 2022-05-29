@@ -69,29 +69,37 @@ a)	zbudowania opracowanego obrazu kontenera,
 ```
 docker build -t s99175/zadanie1 .
 ```
+![alt text](images/a3.png)
 
 b)	uruchomienia kontenera na podstawie zbudowanego obrazu,
 ```
 docker run -p 8080:8080  --name zadanie1 s99175/zadanie1
 ```
+![alt text](images/b3.png)
  
 c)	sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera (patrz: punkt 1a), 
 ```
 docker logs zadanie1
 ```
+![alt text](images/c3.png)
+ 
  
 d)	sprawdzenia, ile warstw posiada zbudowany obraz.
 ```
 docker image inspect s99175/zadanie1 
 ```
+![alt text](images/d3_1.png)
 
 ```
 docker history s99175/zadanie1
 ```
+![alt text](images/d3_2.png)
 
 
+Widok z przeglądarki: http://localhost:8080/
 
-http://localhost:8080/
+![alt text](images/d3_3.png)
+
 
 
 ## Zadanie 4
@@ -104,4 +112,4 @@ Docker Hub: https://hub.docker.com/r/s99175/zadanie1/tags
 docker buildx build -t s99175/zadanie1:v1 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .
 ```
 
-
+![alt text](images/4.png)
