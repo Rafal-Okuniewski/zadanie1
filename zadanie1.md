@@ -153,6 +153,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: Login to Github Packages
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
@@ -163,18 +170,15 @@ jobs:
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
           tags: |
             s99175/zadanie1:v1
-          
-
+            ghcr.io/rafal-okuniewski/zadanie1/zadanie1:v1
 ```
 
-Ustawienie sekretów logowania do dockerhub
+Ustawienie sekretów logowania do Dockerhub i Github
 
 
 ![alt text](images/extra3.png)
 
-- dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody –
-max. 30%
-- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem
-konfiguracji GitHub Container Registry – max. 20%
-(link pomocniczy: https://docs.github.com/en/packages/working-with-a-github-packages-registry/
-working-with-the-container-registry )
+- dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody
+
+
+- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry

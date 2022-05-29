@@ -172,9 +172,7 @@ Ustawienie sekretów logowania do dockerhub
 
 ![alt text](images/extra3.png)
 
-- dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody –
-max. 30%
-- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem
-konfiguracji GitHub Container Registry – max. 20%
-(link pomocniczy: https://docs.github.com/en/packages/working-with-a-github-packages-registry/
-working-with-the-container-registry )
+- dodatkowo z ustawieniem eksportu cache i potwierdzenie poprawności działania tej metody
+
+
+- z przesłaniem danych nie na DockerHub a na repozytorium GitHub wraz z krótkim opisem konfiguracji GitHub Container Registry

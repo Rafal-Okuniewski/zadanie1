@@ -46,5 +46,5 @@ jobs:
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
           tags: |
             s99175/zadanie1:v1
-            ghcr.io/rafal-okuniewski/zadanie1/zadanie1:v1
+            ghcr.io/rafal-okuniewski/zadanie1:v1
           
